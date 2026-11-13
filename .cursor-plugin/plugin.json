@@ -1,0 +1,13 @@
+{
+  "name": "yagni-staff",
+  "displayName": "YAGNI Staff Engineer Workflow",
+  "version": "1.0.0",
+  "description": "Pragmatic Staff Engineer workflow built on Falsifiable First-Principles Thinking, structural budgets, Deletion Tests, and diff-gated commits.",
+  "author": {
+    "name": "gn00616031",
+    "url": "https://github.com/gn00616031"
+  },
+  "repository": "https://github.com/gn00616031/yagni-staff",
+  "license": "MIT",
+  "skills": "./cursor/skills"
+}
