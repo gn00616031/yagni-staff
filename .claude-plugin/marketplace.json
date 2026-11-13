@@ -1,0 +1,39 @@
+{
+  "name": "yagni-staff",
+  "owner": {
+    "name": "gn00616031",
+    "url": "https://github.com/gn00616031"
+  },
+  "metadata": {
+    "description": "Pragmatic Staff Engineer workflow built on Falsifiable First-Principles Thinking, structural budgets, Deletion Tests, isolated token execution, and diff-gated commits.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "yagni-staff",
+      "source": "./claude",
+      "description": "Falsifiable First-Principles planning, Red-Team Deletion Test auditing, and isolated diff-gated execution loop for Claude Code.",
+      "version": "1.0.0",
+      "author": {
+        "name": "gn00616031"
+      },
+      "keywords": [
+        "yagni",
+        "first-principles",
+        "staff-engineer",
+        "workflow",
+        "diff-review",
+        "anti-pattern-matching"
+      ],
+      "commands": [
+        "./commands/yagni-planner.md",
+        "./commands/yagni-reviewer.md",
+        "./commands/yagni-orchestrator.md"
+      ],
+      "agents": [
+        "./agents/yagni-worker.md",
+        "./agents/diff-reviewer.md"
+      ]
+    }
+  ]
+}
