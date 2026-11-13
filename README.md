@@ -13,6 +13,27 @@ A pragmatic Staff Engineer workflow for **Google Antigravity**, **Claude Code**,
 
 ## Quick Install
 
+### Option 1: Claude Code Plugin Marketplace (Native)
+```bash
+/plugin marketplace add gn00616031/yagni-staff
+/plugin install yagni-staff@yagni-staff
+```
+
+### Option 2: Cursor (GitHub Import & Cursor Plugin Manifest)
+This repository includes `.cursor-plugin/plugin.json` and standard `SKILL.md` definitions:
+- **Via Cursor Settings**: Open **Cursor Settings → Rules & Commands → Add Rule / Skill (Remote / GitHub)** and paste `[https://github.com/gn00616031/yagni-staff](https://github.com/gn00616031/yagni-staff)`.
+- **Via Universal Skills CLI**: Run `npx skills add gn00616031/yagni-staff` and select **Cursor** (installs directly to `~/.cursor/skills/`).
+
+### Option 3: Universal Agent Skills CLI (`skills.sh` — Cursor / Codex / Antigravity / Claude)
+```bash
+# Preview available skills
+npx skills add gn00616031/yagni-staff --list
+
+# Install interactively
+npx skills add gn00616031/yagni-staff
+```
+
+### Option 4: One-Line Shell Installer (All Platforms + Global Gitignore)
 Install for all supported tools (**Antigravity**, **Claude Code**, **Codex CLI**, and **Cursor**):
 ```bash
 curl -fsSL https://raw.githubusercontent.com/gn00616031/yagni-staff/main/install.sh | bash
@@ -66,3 +87,19 @@ curl -fsSL https://raw.githubusercontent.com/gn00616031/yagni-staff/main/install
     </tr>
   </tbody>
 </table>
+
+> **Note for Claude Code Marketplace users**: When installed via `/plugin install`, invoke commands with the plugin namespace: `/yagni-staff:yagni-planner`, `/yagni-staff:yagni-reviewer`, and `/yagni-staff:yagni-orchestrator`.
+
+## Repository Structure
+
+```text
+yagni-staff/
+├── .claude-plugin/marketplace.json   # Claude Code native Plugin Marketplace manifest
+├── .cursor-plugin/plugin.json        # Cursor plugin manifest
+├── skills/                           # Top-level Agent Skills entry for `npx skills add`
+├── antigravity/skills/               # Google Antigravity SKILL.md definitions
+├── claude/                           # Claude Code commands & isolated subagents
+├── codex/skills/                     # OpenAI Codex CLI SKILL.md definitions
+├── cursor/skills/                    # Cursor SKILL.md definitions
+└── install.sh                        # Cross-platform installer & global gitignore setup
+```
