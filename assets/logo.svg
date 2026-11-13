@@ -1,0 +1,18 @@
+<svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Background -->
+  <rect width="256" height="256" rx="56" fill="#09090B"/>
+  <!-- Minimalist Head & Flat-Top Hair Silhouette -->
+  <path d="M68 96 C68 62, 188 62, 188 96 L188 156 C188 194, 160 214, 128 214 C96 214, 68 194, 68 156 Z" fill="#FAFAFA"/>
+  <!-- Sharp Flat-Top Hair -->
+  <path d="M64 98 L68 72 C74 56, 182 56, 188 72 L192 98 L174 92 L82 92 Z" fill="#27272A"/>
+  <!-- Minimalist Rectangular Glasses (No nose, no mouth — YAGNI!) -->
+  <rect x="76" y="114" width="44" height="28" rx="6" fill="#09090B"/>
+  <rect x="136" y="114" width="44" height="28" rx="6" fill="#09090B"/>
+  <!-- Glasses Bridge & Temples -->
+  <line x1="120" y1="126" x2="136" y2="126" stroke="#09090B" stroke-width="8"/>
+  <line x1="66" y1="124" x2="76" y2="124" stroke="#09090B" stroke-width="8" stroke-linecap="round"/>
+  <line x1="180" y1="124" x2="190" y2="124" stroke="#09090B" stroke-width="8" stroke-linecap="round"/>
+  <!-- Razor Glint on Lenses (Cutting Bloat) -->
+  <line x1="106" y1="118" x2="90" y2="138" stroke="#EF4444" stroke-width="6" stroke-linecap="round"/>
+  <line x1="166" y1="118" x2="150" y2="138" stroke="#EF4444" stroke-width="6" stroke-linecap="round"/>
+</svg>
