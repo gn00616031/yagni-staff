@@ -9,7 +9,6 @@ A pragmatic Staff Engineer workflow for **Google Antigravity**, **Claude Code**,
 4. **Integration Test First**: Enforces Red-Green integration test verification prior to implementation.
 5. **Token & Context Isolation**: Delegates single-task implementation and adversarial diff reviews to isolated sub-processes/subagents so the main thread never bloats.
 6. **Git `feature/` Branch Safety & Target-Scoped Commits**: Automatically switches off protected branches (`main`/`master`/`develop`) to a `feature/*` branch, commits strictly designated `Target` files per task (excluding `task_plan.md` and temp scripts), and safely stashes failed attempts without losing work.
-7. **Zero Code Comments**: Enforces self-documenting code and strict type naming without noisy inline comments.
 
 ## Quick Install
 

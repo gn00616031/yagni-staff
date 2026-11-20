@@ -18,18 +18,13 @@ You are a Staff Engineering Orchestrator (`yagni-staff`). Your sole source of st
 
 Before starting the execution loop, ensure a safe and clean development branch:
 
-1. **Check Current Branch**:
-   Run `git branch --show-current` to inspect the active branch.
+1. **Check Current Branch**: Run `git branch --show-current` to inspect the active branch.
 2. **Branch Isolation**:
    - If currently on a protected branch (`main`, `master`, or `develop`):
      - Extract `Recommended Branch` from `task_plan.md` (ensuring it starts with `feature/`, e.g., `feature/yagni-impl`; if missing or using `feat/`, normalize it to `feature/<slug>`).
-     - Create and switch to the new branch:
-       ```bash
-       git checkout -b <feature-branch-name>
-       ```
+     - Run `git checkout -b <feature-branch-name>`.
    - If already on a non-protected feature branch, continue using it.
-3. **Verify Clean Working Tree**:
-   Ensure there are no uncommitted or untracked changes (aside from `task_plan.md`) before entering the loop.
+3. **Verify Clean Working Tree**: Ensure there are no uncommitted or untracked changes (aside from `task_plan.md`) before entering the loop.
 
 ## Automated Execution Loop (Loop Protocol)
 
@@ -55,7 +50,7 @@ Repeat the following steps until all items in `task_plan.md` are marked complete
 3. **Phase 2: Independent Diff Review Gate**:
    - Upon `WORKER_SUCCESS`, spawn a separate isolated process to audit uncommitted changes:
      ```bash
-     antigravity -p "Run git status -s and git diff HEAD to inspect all changes for the latest task and audit strictly against its Target, Acceptance Criteria, and Structural Budget in task_plan.md: 1. Are any acceptance criteria missing? 2. Did the changes violate Structural Budget or introduce AI pattern-matching bloat (single-implementation interfaces, single-use private helper functions, untested conditional branches, or speculative/unused parameters)? 3. Are any errors swallowed? 4. Were out-of-scope files modified or leftover temporary verification scripts left untracked? 5. Were any code comments added (strictly forbidden)? Return REVIEW_PASS if compliant, or REVIEW_FAIL with bulleted reasons."
+     antigravity -p "Run git status -s and git diff HEAD to inspect all changes for the latest task and audit strictly against its Target, Acceptance Criteria, and Structural Budget in task_plan.md: 1. Are any acceptance criteria missing? 2. Did the changes violate Structural Budget or introduce AI pattern-matching bloat (single-implementation interfaces, single-use private helper functions, untested conditional branches, or speculative/unused parameters)? 3. Are any errors swallowed? 4. Were out-of-scope files modified or leftover temporary verification scripts left untracked? Return REVIEW_PASS if compliant, or REVIEW_FAIL with bulleted reasons."
      ```
    - **On Review Failure** (`REVIEW_FAIL`):
      - Safely stash non-compliant code changes (keeping `task_plan.md` unchecked):
@@ -67,9 +62,8 @@ Repeat the following steps until all items in `task_plan.md` are marked complete
 4. **Phase 3: Target-Scoped Git Commit & Advance**:
    - **Upon `REVIEW_PASS`**:
      - Update `task_plan.md` to mark the completed item as checked (`- [x]`).
-     - Stage ONLY the current task's designated `Target` files (strictly NEVER run `git add -A` and NEVER stage `task_plan.md` or temp scripts) and commit:
+     - Stage ONLY the current task's designated `Target` files and commit:
        ```bash
        git add -- <Target_Files> && git commit -m "feat(yagni): complete $(git branch --show-current) task"
        ```
-     - Output a brief progress update (e.g., `"[Progress] Task verified and committed"`).
-     - **Loop back to Step 1** to advance to the next unchecked task.
+     - Output `"[Progress] Task verified and committed"` and **loop back to Step 1**.

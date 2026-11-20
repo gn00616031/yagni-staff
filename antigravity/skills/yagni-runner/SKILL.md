@@ -14,7 +14,6 @@ Read `task_plan.md` in the current project and execute the first unchecked (`- [
      - **Structural Budget**: Strictly obey `New Production Files Allowed`, `New Interfaces/Classes Allowed`, and `New Single-Use Helpers Allowed`.
      - **Zero Single-Use Helpers**: Keep sequential logic inline within the target function. Do NOT extract private helper functions/methods unless called 2 or more times.
      - **Zero Untested Branches & Parameters**: Every added function parameter, optional config flag, or conditional branch (`if`/`else`/`switch`) must be directly exercised by the Acceptance Criteria tests. Remove speculative parameters and dead fallback branches.
-     - **No Code Comments**: Strictly DO NOT write inline comments, block comments, or docstrings. Code, types, and naming must be self-explanatory.
 3. **Targeted Verification & Write-Then-Prune Gate**:
    - Run ONLY the specified `Verification` test command until tests pass (Green).
    - **Mandatory 20% Subtraction Pass**: Once Green, inspect your changes and actively delete ~20% of redundant intermediate variables, wrapper abstractions, single-use helpers, or untested defensive branches while keeping tests Green.
@@ -25,7 +24,6 @@ Read `task_plan.md` in the current project and execute the first unchecked (`- [
      - Does the diff strictly obey `Structural Budget` (zero unbudgeted files, interfaces, or single-use helpers)?
      - Are there zero untested branches or speculative function parameters?
      - Are all temporary verification scripts removed?
-     - Were any new code comments added? (Remove immediately if found.)
      - Are any errors swallowed (e.g., empty `catch` blocks, ignored error returns)?
    - If self-review fails, prune/refine the code and re-verify.
 5. **Report Status (Do NOT Check Off or Commit)**:

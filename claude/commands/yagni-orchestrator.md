@@ -45,9 +45,8 @@ Repeat the following steps until all items in `task_plan.md` are marked complete
 4. **Phase 3: Mark Complete, Target-Scoped Auto-Commit & Advance**:
    - Upon `REVIEW_PASS`:
      - Mark the task as completed (`- [x]`) in `task_plan.md`.
-     - Stage ONLY the current task's designated `Target` files (strictly NEVER stage `task_plan.md` or temp files) and commit:
+     - Stage ONLY the current task's designated `Target` files and commit:
        ```bash
        git add -- <Target_Files> && git commit -m "feat(yagni): complete $(git branch --show-current) task"
        ```
-     - Output a brief progress summary (e.g., `"[Progress] Task verified and committed"`).
-     - **Loop back to Step 1** to advance to the next unchecked task.
+     - Output `"[Progress] Task verified and committed"` and **loop back to Step 1**.

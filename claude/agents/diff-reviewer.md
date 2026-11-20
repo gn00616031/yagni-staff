@@ -15,7 +15,6 @@ Review Rules:
    - Zero Untested Branches & Parameters: Reject newly added function parameters, optional config flags, or conditional branches not directly exercised by the task's tests.
    - Error Safety: Are errors properly handled without being swallowed (empty catches, ignored errors)?
    - Scope & Cleanliness: Confirm changes are strictly confined to `Target` files and NO leftover temporary verification scripts or scratch files exist in `git status -s`.
-   - No Comments Rule: Inspect `git diff HEAD` for newly added comments (//, /* */, #, docstrings). If new comments were added, mark as failure.
 4. Return Status:
    - If all checks pass:
      `STATUS: REVIEW_PASS`
